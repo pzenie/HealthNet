@@ -20,5 +20,3 @@ To run the HealthNet application follow these steps:
 
 10. To create a patient go to register user(Register Here) or log in as the admin(Staff Login)
 to go create a medical staff profile(Nurse, Doctor, Secretary, or Manager) after going into Admin Utilities.
-
-11. Meesages show received messages.
