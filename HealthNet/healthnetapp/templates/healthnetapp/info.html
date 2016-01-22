@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Info</title>
+		<style>
+		body{ width: 100%; height: 100%; background: linear-gradient(#A0A0A0,#E0E0E0);}
+		#main{ padding-top: 5%; width: 80%; margin: 0 auto;}
+		#home{position: absolute; width: 150px; right: 20%; top:4%;}
+		#page{position: absolute; width: 150px; right: 6%; top:4%;}
+		#content{ padding-left: 20%; }
+		#id{ margin-left: 50px;}
+		.centered{ text-align: center; }
+		a:link,a:visited {
+			text-align:center;
+			font-family:bold;
+			color: blue;
+			text-decoration:none;
+		}
+		#menu{position: absolute; width: 25%; height: 30%; top: 20%; right: 3%; background-color:#ADD8E6; border: 3px solid black;
+			border-top-right-radius: 25px;  border-top-left-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;}
+
+		button{ width: 130px; height: 20px; border: 2px solid blue; margin-right: 7px;background-color:white; left: -20px;}
+		button:hover{ background-color: grey;}	
+		h1{
+			color:blue;
+			text-align:center;
+		}
+		</style>
+    </head>
+	<body>
+	<div id="main">
+	<table style="width: 100%;">
+	<td class="centered"style=color:blue;font-size:48px;border= 1 px solid black;>HealthNet</td>
+	{% if user.is_authenticated %}
+		<td id="home"><form action="/healthnetapp/user">
+			<button type="submit" value="User Homepage">User Homepage</button>
+		</form></td>
+	{% else %}
+		<td id="page" style=text-align:center;><form action="/healthnetapp/">
+			<button type="submit" value="Homepage">Homepage</button>
+		</form></td>
+	{% endif %}
+	</table>
+	<div id="content">
+
+	{% for hos in hospitals %}
+		<p>{{hos.name}}</br></p>
+		<p>Address: {{hos.address}}</br></p>
+		<p>Phone #: {{hos.phone}}</br></p>
+		<p>Email: {{hos.email}}</br></p>
+		<p>Hours: {{hos.hours}}</br></br></p>
+	{% endfor %}
+		</div>
+		</div>
+		</body>
+</html>

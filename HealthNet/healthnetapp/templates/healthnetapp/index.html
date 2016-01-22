@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+		<style>
+		body{ width: 100%; height: 100vh; background: linear-gradient(#A0A0A0,#E0E0E0);}
+		#main{ padding-top: 5%; width: 100%; margin: 0 auto;}
+		#home{position: absolute; width: 150px; right: 10%; top:3%;}
+		#content{ padding-left: 20%; }
+		#id{ margin-left: 50px;}
+		.centered{ text-align: center; }
+		a:link,a:visited {
+			text-align:center;
+			font-family:bold;
+			color: blue;
+			text-decoration:none;
+		}
+		#menu{position: absolute; width: 25%; height: 30%; top: 20%; right: 3%; background-color:#ADD8E6; border: 3px solid black;
+			border-top-right-radius: 25px;  border-top-left-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;}
+
+		button{ width: 130px; height: 20px; border: 2px solid blue; margin-right: 7px;background-color:white; left: -20px;}
+		button:hover{ background-color: grey;}	
+		h1{
+			color:blue;
+			text-align:center;
+		}
+		</style>
+    </head>
+	<body>
+	<div id="main">
+	<div class="centered">
+		{% if user.is_authenticated %}
+			<h1>Welcome {{ user.username }}, you are logged in to HealthNet</h1>
+			<table align="center" style="width:100%">
+			<tr>
+			{% if user.is_superuser %}
+				<td><form action="/healthnetapp/logs_list/">
+					<button type="submit" value="View Logs">View Logs</button>
+				</form></td>
+				<td style=text-align:center><form action="/healthnetapp/user/">
+					<button type="submit" value="Admin Utilities">Admin Utilities</button>
+				</form></td>
+			{% else %}
+				<td style=text-align:center><form action="/healthnetapp/user/">
+				<button type="submit" value="Profile Info">Profile Info</button>
+				</form></td>
+				<td style=text-align:center><form action="/healthnetapp/update/">
+					<button type="submit" value="Update Info">Update Info</button>
+				</form></td>
+				<td style=text-align:center;><form action="/healthnetapp/calendar/">
+					<button type="submit" value="Calendar">Calendar</button>					
+				</form></td>
+			{% endif %}
+			<td style=text-align:center;><form action="/healthnetapp/info/">
+			<button type="submit" value="Hospital Information">Hospital Info</button>
+			</form></td>
+			<td><form action="/healthnetapp/logout/">
+				<button type="submit" value="Logout">Log out</button>
+			</form></td>
+		{% else %}
+			<h1>Welcome to HealthNet, you are not logged in</h1>
+			<table align="center">
+			<tr>
+			<td><form action="/healthnetapp/login/patient/">
+				<button type="submit" value="Patient Login">Patient Login</button>
+			</form></td>
+			<td><form action="/healthnetapp/login/staff/">
+				<button type="submit" value="Staff Login">Staff Login</button>
+			</form></td>
+			<td><form action="/healthnetapp/register/">
+				<button type="submit" value="Register Here">Register Here</button>
+			</form></td>
+			<td style=text-align:center;><form action="/healthnetapp/info/">
+				<button type="submit" value="Hospital Information">Hospital Info</button>
+			</form></td>
+			</tr>
+			</table>
+		{% endif %}
+		</div>
+		</div>
+	</body>
+</html>

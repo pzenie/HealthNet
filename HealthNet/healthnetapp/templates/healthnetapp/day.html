@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>HealthNet Day</title>
+		<style>
+		body{ height: 100vh; background: linear-gradient(#A0A0A0,#E0E0E0);}
+		#main{ padding-top: 5%; width: 80%; margin: 0 auto;}
+		#home{position: absolute; width: 150px; right: 10%; top: 3%;}
+		#content{ padding-left: 20%; }
+		.centered{ text-align: center; }
+		a:link,a:visited {
+			text-align:center;
+			font-family:bold;
+			color: blue;
+			text-decoration:none;
+		}
+		#menu{position: absolute; width: 25%; height: 30%; top: 20%; right: 3%; background-color:#ADD8E6; border: 3px solid black;
+			border-top-right-radius: 25px;  border-top-left-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;}
+
+		button{ width: 150px; height: 20px; border: 2px solid black; background-color:white;}
+		button:hover{ background-color: grey;}
+		</style>
+    </head>
+<body>
+<div id="main">
+<div class="centered">
+<table style="width:100%">
+<td style=color:blue;font-size:32px;border=1 px solid black;>HealthNet</td>
+<td id="home"><form action="/healthnetapp/user">
+	<p><button type="submit" value="User Homepage">User Homepage</button></p>
+</form></td>
+</table>
+<h2> {{month}}/{{day}}/{{year}}</h2>
+<h2>select a time</h2>
+</div>
+<div id="content">
+{% if type == "Admin" or type == "nurse" or type == "manager" or type == "secretary"%}
+	08 AM:
+	{% for ap in list.8am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/8am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	09 AM:
+	{% for ap in list.9am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/9am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	10 AM:
+	{% for ap in list.10am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/10am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	11 AM:
+	{% for ap in list.11am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/11am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	12 PM:
+	{% for ap in list.12pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/12pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	1 PM:
+	{% for ap in list.1pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/1pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	2 PM:
+	{% for ap in list.2pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/2pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	3 PM:
+	{% for ap in list.3pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/3pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}</br>
+	4 PM:
+	{% for ap in list.4pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/4pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+		{% endfor %}</br>
+	5 PM:
+	{% for ap in list.5pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/5pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="{{ap.owner}} : {{ap.doctor}},">
+		</form></td>
+	{% endfor %}
+{% elif type == "doctor" %}
+	{% for ap in list.8am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/8am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="08 AM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.9am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/9am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="09 AM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.10am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/10am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="10 AM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.11am %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/11am/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="11 AM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.12pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/12pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="12 PM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.1pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/1pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="1 PM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.2pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/2pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="2 PM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.3pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/3pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="3 PM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.4pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/4pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="4 PM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+	{% for ap in list.5pm %}
+		<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/5pm/{{ap.doctor}}/{{ap.owner}}/">
+			<input type="submit" value="5 PM: {{ap.owner}}">
+		</form></td>
+	{% endfor %}
+
+{% else %}
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/8am/none/null/">
+		<input type="submit" value="08 AM,">
+		Available Doctors: [{% for docs in list.8am %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/9am/none/null/">
+		<input type="submit" value="09 AM,">
+		Available Doctors: [{% for docs in list.9am %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/10am/none/null/">
+		<input type="submit" value="10 AM,">
+		Available Doctors: [{% for docs in list.10am %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/11am/none/null/">
+		<input type="submit" value="11 AM,">
+		Available Doctors: [{% for docs in list.11am %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/12am/none/null/">
+		<input type="submit" value="12 PM,">
+		Available Doctors: [{% for docs in list.12pm %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/1pm/none/null/">
+		<input type="submit" value="1 PM,">
+		Available Doctors: [{% for docs in list.1pm %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/2pm/none/null/">
+		<input type="submit" value="2 PM,">
+		Available Doctors: [{% for docs in list.2pm %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/3pm/none/null/">
+		<input type="submit" value="3 PM,">
+		Available Doctors: [{% for docs in list.3pm %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/4pm/none/null/">
+		<input type="submit" value="4 PM,">
+		Available Doctors: [{% for docs in list.4pm %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+
+	<td><form action="/healthnetapp/appointment/{{ year }}/{{month}}/{{ day }}/5pm/none/null/">
+		<input type="submit" value="5 PM,">
+		Available Doctors: [{% for docs in list.5pm %} {{docs.firstname}} {{docs.lastname}} - {{docs.profession}}; {% endfor %}]
+	</form></td>
+{% endif %}
+</div>
+</div>
+<body>
+</html>

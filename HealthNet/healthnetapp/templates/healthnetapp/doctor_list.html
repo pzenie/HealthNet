@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Doctor List</title>
+		<style>
+		body{ width: 100%; height: 100vh; background: linear-gradient(#A0A0A0,#E0E0E0);}
+		#main{ padding-top: 5%; width: 80%; margin: 0 auto;}
+		#home{position: absolute; width: 150px; right: 10%; top:3%;}
+		#content{ padding-left: 20%; }
+		#id{ margin-left: 50px;}
+		.centered{ text-align: center; margin-bottom: 3%;}
+		a:link,a:visited {
+			text-align:center;
+			font-family:bold;
+			color: blue;
+			text-decoration:none;
+		}
+		#menu{position: absolute; width: 25%; height: 30%; top: 20%; right: 3%; background-color:#ADD8E6; border: 3px solid black;
+			border-top-right-radius: 25px;  border-top-left-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;}
+
+		button{ width: 150px; height: 20px; border: 2px solid blue; background-color:white;}
+		button:hover{ background-color: grey;}
+		</style>
+    </head>
+<body>
+<div id="main">
+<div class="centered">
+	<table style="width:100%">
+		<td style=color:blue;font-size:48px;border=1 px solid black;>HealthNet</td>
+		<td id="home"><form action="/healthnetapp/user">
+			<p><button type="submit" value="User Homepage">User Homepage</button></p>
+		</form></td>
+	</table>
+</div>
+<div id="content">
+{% for pat in doctors %}
+	Username: {{pat.username}}</br>
+	First Name: {{pat.firstname}}</br>
+	Last Name: {{pat.lastname}}</br>
+	
+	<td><form action="/healthnetapp/view_info/{{ pat.username }}">
+		<button type="submit" value="View Doctor Info">Doctor Info</button>
+	</form></td>
+	{% if modify %}
+		<td><form action="/healthnetapp/update_doctor/{{ pat.username }}">
+		<button type="submit" value="Update Doctor Info">Update Info</button>
+		</form></td>
+	{% endif %}
+	<td><form action="/healthnetapp/write_message/{{ pat.username }}">
+	<button type="submit" value="Send Message">Send Message</button>
+	</form></td>
+	</br>
+	</br>
+{% endfor %}
+</body>
+</div>
+</div>
+</html>

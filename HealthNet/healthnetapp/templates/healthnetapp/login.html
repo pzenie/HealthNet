@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HealthNet Login</title>
+		<style>
+		body{ background: linear-gradient(#A0A0A0,#E0E0E0); }
+		.container{ width:100%;}
+		.right{
+		height: 100vh;
+		background: #D8D8D8;
+		text-align: center;
+		}
+		a:link,a:visited {
+			text-align:center;
+			font-family:bold;
+			color: blue;
+			text-decoration:none;
+		}
+		#menu{position: absolute; width: 25%; height: 40%; top: 20%; right: 35%; background-color:#ADD8E6; border: 3px solid black;
+			border-top-right-radius: 25px;  border-top-left-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;}
+		h1 {
+			color:blue;
+			text-align:center;
+		}
+		button{ width: 150px; height: 20px; border: 2px solid black; background-color:white;}
+		button:hover{ background-color: grey;}
+		</style>
+    </head>
+
+    <body>
+		<div class="container">
+		<div class="right">
+		<div id="menu">
+        <h1>Login to HealthNet</h1>
+
+        <form id="login_form" method="post" action="/healthnetapp/login/{{type}}/">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="25" />
+            <br />
+			<br />
+            Password: &nbsp;<input type="password" name="password" value="" size="25" />
+            <br />
+			<br/>
+			<p><button type="submit" value="Submit">Submit</button></p> 
+			
+        </form>
+		<form action="/healthnetapp/">
+			<p><button type="submit" value="Return to Homepage">Return to Homepage</button></p> 
+		</form>
+		</div>
+		</div>
+		</div>
+    </body>
+</html>
