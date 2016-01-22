@@ -22,19 +22,3 @@ To run the HealthNet application follow these steps:
 to go create a medical staff profile(Nurse, Doctor, Secretary, or Manager) after going into Admin Utilities.
 
 11. Meesages show received messages.
-
-Contact Information:
-	Paul Zenie: email: pxz5572@rit.edu
-		    #: 845-750-9814
-
-	Mark McCowan: email: mnm6041@g.rit.edu
-		      #: 518-248-2627
-
-	Adrian Tygart: email: alt5110@g.rit.edu
-		       #: 417-641-0322
-
-	Anthony Giallella: email: ajg9000@rit.edu
-			   #: 716-536-3412
-
-	James Smith: email: jss1612@g.rit.edu
-		     #: 201-970-6560
